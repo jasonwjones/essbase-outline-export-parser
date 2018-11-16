@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<application name="Sample_U" csversion="4.0" product="ESSBASE_PRODUCT" redeployType="full" dimCount="10">
+	<Validation sharedBeforePrototype="N"></Validation>
+	<cube>
+		<applicationSettings cubeType="BSO" isUTF8="Y" />
+		<databaseSettings>
+			<bsoSettings dateFormat="yyyy-mm-dd" impliedSharedSetting="default On" />
+		</databaseSettings>
+		<aliasTables>
+			<Table name="Default" />
+			<Table name="Long Names" />
+			<Table name="ChineseNames" />
+			<Table name="JapaneseNames" />
+			<Table name="RussianNames" />
+			<Table name="GermanNames" />
+			<DefaultTable name="Default" />
+		</aliasTables>
+		<dynamicTimeSeriesSettings>
+			<H-T-D enabled="Y" generation="1"></H-T-D>
+			<Q-T-D enabled="Y" generation="2"></Q-T-D>
+		</dynamicTimeSeriesSettings>
+		<attributeSettings>
+			<prefixSuffixValue>Prefix</prefixSuffixValue>
+			<prefixSuffixFormat>Parent</prefixSuffixFormat>
+		</attributeSettings>
+		<attributeCalculationSettings>
+			<BSOAttributeCalcs count="Count" min="Min" max="Max" avg="Avg" dimensionName="Attribute Calculations" sum="Sum"
+				true="True" false="False" rangeName="Tops of Ranges" />
+		</attributeCalculationSettings>
+	</cube>
+	<Dimension name="Year" DataStorage="DynamicCalc" HierarchyType="Stored" dimensionType="Time" density="Dense" csversion="4.0">
+		<Alias table="ChineseNames">年</Alias>
+		<Alias table="JapaneseNames">年</Alias>
+		<Alias table="RussianNames">Год</Alias>
+		<Alias table="GermanNames">Jahr</Alias>
+		<Generations>
+			<GenLevel number="1" name="History" />
+			<GenLevel number="2" name="Quarter" />
+		</Generations>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">Y</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="3" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">Y</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="Qtr1" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<Alias table="Long Names">Quarter1</Alias>
+			<Alias table="ChineseNames">第一季</Alias>
+			<Alias table="JapaneseNames">第一四半期</Alias>
+			<Alias table="RussianNames">Квартал 1</Alias>
+			<Alias table="GermanNames">1. Quartal</Alias>
+			<Member name="Jan">
+				<Alias table="Long Names">January</Alias>
+				<Alias table="ChineseNames">一月</Alias>
+				<Alias table="JapaneseNames">１月</Alias>
+				<Alias table="RussianNames">Январь</Alias>
+				<Alias table="GermanNames">Januar</Alias>
+			</Member>
+			<Member name="Feb">
+				<Alias table="Long Names">February</Alias>
+				<Alias table="ChineseNames">二月</Alias>
+				<Alias table="JapaneseNames">２月</Alias>
+				<Alias table="RussianNames">Февраль</Alias>
+				<Alias table="GermanNames">Februar</Alias>
+			</Member>
+			<Member name="Mar">
+				<Alias table="Long Names">March</Alias>
+				<Alias table="ChineseNames">三月</Alias>
+				<Alias table="JapaneseNames">３月</Alias>
+				<Alias table="RussianNames">Март</Alias>
+				<Alias table="GermanNames">März</Alias>
+			</Member>
+		</Member>
+		<Member name="Qtr2" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<Alias table="Long Names">Quarter2</Alias>
+			<Alias table="ChineseNames">第二季</Alias>
+			<Alias table="JapaneseNames">第二四半期</Alias>
+			<Alias table="RussianNames">Квартал 2</Alias>
+			<Alias table="GermanNames">2. Quartal</Alias>
+			<Member name="Apr">
+				<Alias table="Long Names">April</Alias>
+				<Alias table="ChineseNames">四月</Alias>
+				<Alias table="JapaneseNames">４月</Alias>
+				<Alias table="RussianNames">Апрель</Alias>
+				<Alias table="GermanNames">April</Alias>
+			</Member>
+			<Member name="May">
+				<Alias table="Long Names">May</Alias>
+				<Alias table="ChineseNames">五月</Alias>
+				<Alias table="JapaneseNames">５月</Alias>
+				<Alias table="RussianNames">Май</Alias>
+				<Alias table="GermanNames">Mai</Alias>
+			</Member>
+			<Member name="Jun">
+				<Alias table="Long Names">Jun</Alias>
+				<Alias table="ChineseNames">六月</Alias>
+				<Alias table="JapaneseNames">６月</Alias>
+				<Alias table="RussianNames">Июнь</Alias>
+				<Alias table="GermanNames">Juni</Alias>
+			</Member>
+		</Member>
+		<Member name="Qtr3" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<Alias table="Long Names">Quarter3</Alias>
+			<Alias table="ChineseNames">第三季</Alias>
+			<Alias table="JapaneseNames">第三四半期</Alias>
+			<Alias table="RussianNames">Квартал 3</Alias>
+			<Alias table="GermanNames">3. Quartal</Alias>
+			<Member name="Jul">
+				<Alias table="Long Names">July</Alias>
+				<Alias table="ChineseNames">七月</Alias>
+				<Alias table="JapaneseNames">７月</Alias>
+				<Alias table="RussianNames">Июль</Alias>
+				<Alias table="GermanNames">Juli</Alias>
+			</Member>
+			<Member name="Aug">
+				<Alias table="Long Names">August</Alias>
+				<Alias table="ChineseNames">八月</Alias>
+				<Alias table="JapaneseNames">８月</Alias>
+				<Alias table="RussianNames">Август</Alias>
+				<Alias table="GermanNames">August</Alias>
+			</Member>
+			<Member name="Sep">
+				<Alias table="Long Names">September</Alias>
+				<Alias table="ChineseNames">九月</Alias>
+				<Alias table="JapaneseNames">９月</Alias>
+				<Alias table="RussianNames">Сентябрь</Alias>
+				<Alias table="GermanNames">September</Alias>
+			</Member>
+		</Member>
+		<Member name="Qtr4" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<Alias table="Long Names">Quarter4</Alias>
+			<Alias table="ChineseNames">第四季</Alias>
+			<Alias table="JapaneseNames">第四四半期</Alias>
+			<Alias table="RussianNames">Квартал 4</Alias>
+			<Alias table="GermanNames">4. Quartal</Alias>
+			<Member name="Oct">
+				<Alias table="Long Names">October</Alias>
+				<Alias table="ChineseNames">十月</Alias>
+				<Alias table="JapaneseNames">１０月</Alias>
+				<Alias table="RussianNames">Октябрь</Alias>
+				<Alias table="GermanNames">Oktober</Alias>
+			</Member>
+			<Member name="Nov">
+				<Alias table="Long Names">November</Alias>
+				<Alias table="ChineseNames">十一月</Alias>
+				<Alias table="JapaneseNames">１１月</Alias>
+				<Alias table="RussianNames">Ноябрь</Alias>
+				<Alias table="GermanNames">November</Alias>
+			</Member>
+			<Member name="Dec">
+				<Alias table="Long Names">December</Alias>
+				<Alias table="ChineseNames">十二月</Alias>
+				<Alias table="JapaneseNames">１２月</Alias>
+				<Alias table="RussianNames">Декабрь</Alias>
+				<Alias table="GermanNames">Dezember</Alias>
+			</Member>
+		</Member>
+	</Dimension>
+	<Dimension name="Measures" DataStorage="LabelOnly" HierarchyType="Stored" IsCompressionDimension="Y" dimensionType="Accounts"
+		density="Dense" csversion="4.0">
+		<Alias table="ChineseNames">評價</Alias>
+		<Alias table="JapaneseNames">メジャー</Alias>
+		<Alias table="RussianNames">Реестр финансовых результатов</Alias>
+		<Alias table="GermanNames">Umsätze</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="3" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="Y" MemberSolveOrder="N"
+				TimeBalance="Y" VarianceReporting="Y" comment="N" MemberFormula="Y" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">Y</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="4" memberIdentifier="N" Consolidation="Y" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="Y" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">Y</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="Profit" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<Alias table="ChineseNames">利益</Alias>
+			<Alias table="JapaneseNames">利益</Alias>
+			<Alias table="RussianNames">Прибыль</Alias>
+			<Alias table="GermanNames">Gewinn</Alias>
+			<Member name="Margin" DataStorage="DynamicCalc">
+				<Alias table="Long Names">Gross Margin</Alias>
+				<Alias table="ChineseNames">毛利</Alias>
+				<Alias table="JapaneseNames">差益</Alias>
+				<Alias table="RussianNames">Добавочная стоимость</Alias>
+				<Alias table="GermanNames">Handelsspanne</Alias>
+				<Member name="Sales">
+					<Alias table="Long Names">Revenue</Alias>
+					<Alias table="ChineseNames">銷售</Alias>
+					<Alias table="JapaneseNames">売上</Alias>
+					<Alias table="RussianNames">Продажи</Alias>
+					<Alias table="GermanNames">Umsatz</Alias>
+				</Member>
+				<Member name="COGS" Consolidation="-" VarianceReporting="Expense">
+					<Alias table="Long Names">Cost of Goods Sold</Alias>
+					<Alias table="ChineseNames">成本</Alias>
+					<Alias table="JapaneseNames">原価</Alias>
+					<Alias table="RussianNames">Затраты</Alias>
+					<Alias table="GermanNames">Verkaufskosten</Alias>
+				</Member>
+			</Member>
+			<Member name="Total Expenses" Consolidation="-" DataStorage="DynamicCalc" VarianceReporting="Expense">
+				<Alias table="ChineseNames">總銷費</Alias>
+				<Alias table="JapaneseNames">総出費</Alias>
+				<Alias table="RussianNames">Общие затраты</Alias>
+				<Alias table="GermanNames">Ausgaben Gesamt</Alias>
+				<Member name="Marketing" VarianceReporting="Expense">
+					<Alias table="ChineseNames">行銷</Alias>
+					<Alias table="JapaneseNames">市場調査</Alias>
+					<Alias table="RussianNames">Маркетинг</Alias>
+				</Member>
+				<Member name="Payroll" VarianceReporting="Expense">
+					<Alias table="ChineseNames">工資</Alias>
+					<Alias table="JapaneseNames">給与</Alias>
+					<Alias table="RussianNames">Зарплата</Alias>
+					<Alias table="GermanNames">Personalkosten</Alias>
+				</Member>
+				<Member name="Misc" VarianceReporting="Expense">
+					<Alias table="Long Names">Miscelleneous</Alias>
+					<Alias table="ChineseNames">其他</Alias>
+					<Alias table="JapaneseNames">その他</Alias>
+					<Alias table="RussianNames">Разное</Alias>
+					<Alias table="GermanNames">Verschiedenes</Alias>
+				</Member>
+			</Member>
+		</Member>
+		<Member name="Inventory" Consolidation="~" DataStorage="LabelOnly" HierarchyType="Disabled">
+			<Alias table="ChineseNames">存貨</Alias>
+			<Alias table="JapaneseNames">棚卸資産</Alias>
+			<Alias table="RussianNames">Запасы</Alias>
+			<Alias table="GermanNames">Bestand</Alias>
+			<Member name="Opening Inventory" VarianceReporting="Expense" TimeBalance="First">
+				<MemberFormula> IF(NOT @ISMBR(Jan))&quot;Opening Inventory&quot;=@PRIOR(&quot;Ending Inventory&quot;);
+					ENDIF; &quot;Ending Inventory&quot;=&quot;Opening Inventory&quot;+Additions-Sales;
+				</MemberFormula>
+				<Alias table="ChineseNames">期初存貨</Alias>
+				<Alias table="JapaneseNames">開始棚卸資産</Alias>
+				<Alias table="RussianNames">Начальный уровень запасов</Alias>
+				<Alias table="GermanNames">Anfangsbestand</Alias>
+			</Member>
+			<Member name="Additions" Consolidation="~" VarianceReporting="Expense">
+				<Alias table="ChineseNames">追加</Alias>
+				<Alias table="JapaneseNames">追加資産</Alias>
+				<Alias table="RussianNames">Прирост</Alias>
+				<Alias table="GermanNames">Zugänge</Alias>
+			</Member>
+			<Member name="Ending Inventory" Consolidation="~" VarianceReporting="Expense" TimeBalance="Last">
+				<Alias table="ChineseNames">期末存貨</Alias>
+				<Alias table="JapaneseNames">期末棚卸資産</Alias>
+				<Alias table="RussianNames">Конечный уровень запасов</Alias>
+				<Alias table="GermanNames">Endbestand</Alias>
+			</Member>
+		</Member>
+		<Member name="Ratios" Consolidation="~" DataStorage="LabelOnly" HierarchyType="Disabled">
+			<Alias table="ChineseNames">比率</Alias>
+			<Alias table="JapaneseNames">比率</Alias>
+			<Alias table="RussianNames">Процентное соотношение</Alias>
+			<Alias table="GermanNames">Verhältnis</Alias>
+			<Member name="Margin %" TwoPassCalc="Y" DataStorage="DynamicCalc">
+				<MemberFormula> Margin % Sales;
+				</MemberFormula>
+				<Alias table="ChineseNames">毛利率</Alias>
+				<Alias table="JapaneseNames">差益率</Alias>
+				<Alias table="RussianNames">Добавочная стоимость %</Alias>
+				<Alias table="GermanNames">Handelsspanne in %</Alias>
+			</Member>
+			<Member name="Profit %" Consolidation="~" TwoPassCalc="Y" DataStorage="DynamicCalc">
+				<MemberFormula> Profit % Sales;
+				</MemberFormula>
+				<Alias table="ChineseNames">利益率</Alias>
+				<Alias table="JapaneseNames">利益率</Alias>
+				<Alias table="RussianNames">Прибыль %</Alias>
+				<Alias table="GermanNames">Gewinn in %</Alias>
+			</Member>
+			<Member name="Profit per Ounce" Consolidation="~" TwoPassCalc="Y" DataStorage="DynamicCalc">
+				<MemberFormula> Profit/@ATTRIBUTEVAL(@Name(Ounces));
+				</MemberFormula>
+				<Alias table="ChineseNames">每盎司利益</Alias>
+				<Alias table="JapaneseNames">オンス毎利益</Alias>
+				<Alias table="RussianNames">Прибыль на унцию</Alias>
+				<Alias table="GermanNames">Gewinn pro Unze</Alias>
+			</Member>
+		</Member>
+	</Dimension>
+	<Dimension name="Product" HierarchyType="Stored" csversion="4.0">
+		<AttributeDimension nameRef="Caffeinated" name="Caffeinated" AttributeType="Boolean"></AttributeDimension>
+		<AttributeDimension nameRef="Ounces" name="Ounces" AttributeType="Numeric"></AttributeDimension>
+		<AttributeDimension nameRef="Pkg Type" name="Pkg Type" AttributeType="Text"></AttributeDimension>
+		<AttributeDimension nameRef="Intro Date" name="Intro Date" AttributeType="Date"></AttributeDimension>
+		<Alias table="ChineseNames">商品</Alias>
+		<Alias table="JapaneseNames">商品</Alias>
+		<Alias table="RussianNames">Товары</Alias>
+		<Alias table="GermanNames">Produkt</Alias>
+		<Levels>
+			<GenLevel number="0" name="SKU" />
+			<GenLevel number="1" name="Family" />
+		</Levels>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">Y</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="3" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">Y</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">Y</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">Y</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">Y</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">Y</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="100" HierarchyType="Disabled">
+			<Alias table="Default">Colas</Alias>
+			<Alias table="ChineseNames">可樂類</Alias>
+			<Alias table="JapaneseNames">コーラ類</Alias>
+			<Alias table="RussianNames">Колы</Alias>
+			<Alias table="GermanNames">Cola Getränke</Alias>
+			<Member name="100-10">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Can" />
+				<AttributeMember dimension="Intro Date" name="03-25-1996" />
+				<Alias table="Default">Cola</Alias>
+				<Alias table="ChineseNames">可樂</Alias>
+				<Alias table="JapaneseNames">コーラ</Alias>
+				<Alias table="RussianNames">Кола</Alias>
+				<Alias table="GermanNames">Cola</Alias>
+			</Member>
+			<Member name="100-20">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Can" />
+				<AttributeMember dimension="Intro Date" name="04-01-1996" />
+				<Alias table="Default">Diet Cola</Alias>
+				<Alias table="ChineseNames">健怡可樂(低熱量可樂)</Alias>
+				<Alias table="JapaneseNames">ダイエットコーラ</Alias>
+				<Alias table="RussianNames">Диетическая кола</Alias>
+				<Alias table="GermanNames">Cola Light</Alias>
+			</Member>
+			<Member name="100-30">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="16" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="04-01-1996" />
+				<Alias table="Default">Caffeine Free Cola</Alias>
+				<Alias table="ChineseNames">無咖啡因可樂</Alias>
+				<Alias table="JapaneseNames">コーラ カフェインフリー</Alias>
+				<Alias table="RussianNames">Кола без коффеина</Alias>
+				<Alias table="GermanNames">Koffeinfreie Cola</Alias>
+			</Member>
+		</Member>
+		<Member name="200" HierarchyType="Disabled">
+			<Alias table="Default">Root Beer</Alias>
+			<Alias table="ChineseNames">麥根沙士</Alias>
+			<Alias table="JapaneseNames">ルートビール</Alias>
+			<Alias table="RussianNames">Корнеплодные напитки</Alias>
+			<Alias table="GermanNames">Kohlensäurehaltige Getränke</Alias>
+			<Member name="200-10">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="09-27-1995" />
+				<Alias table="Default">Old Fashioned</Alias>
+				<Alias table="ChineseNames">傳統的</Alias>
+				<Alias table="JapaneseNames">オールドファッションド</Alias>
+				<Alias table="RussianNames">Старинный напиток</Alias>
+				<Alias table="GermanNames">Orangenlimonade</Alias>
+			</Member>
+			<Member name="200-20">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="16" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="07-26-1996" />
+				<Alias table="Default">Diet Root Beer</Alias>
+				<Alias table="ChineseNames">健怡(低熱量)麥根沙士</Alias>
+				<Alias table="JapaneseNames">ダイエットルールビール</Alias>
+				<Alias table="RussianNames">Диет. корнеплодный напиток</Alias>
+				<Alias table="GermanNames">Zitronenlimonade</Alias>
+			</Member>
+			<Member name="200-30">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="12-10-1996" />
+				<Alias table="Default">Sasparilla</Alias>
+				<Alias table="ChineseNames">黒松沙士</Alias>
+				<Alias table="JapaneseNames">サスパリラ</Alias>
+				<Alias table="RussianNames">Саспарилла</Alias>
+				<Alias table="GermanNames">Mineralwasser mit Zitrone</Alias>
+			</Member>
+			<Member name="200-40">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="16" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="12-10-1996" />
+				<Alias table="Default">Birch Beer</Alias>
+				<Alias table="ChineseNames">Birch Beer</Alias>
+				<Alias table="JapaneseNames">バーチビール</Alias>
+				<Alias table="RussianNames">Березовый напиток</Alias>
+				<Alias table="GermanNames">Mineralwasser</Alias>
+			</Member>
+		</Member>
+		<Member name="300" HierarchyType="Disabled">
+			<Alias table="Default">Cream Soda</Alias>
+			<Alias table="ChineseNames">奶精汽水</Alias>
+			<Alias table="JapaneseNames">クリームソーダ</Alias>
+			<Alias table="RussianNames">Крем-сода</Alias>
+			<Alias table="GermanNames">Milchgetränke</Alias>
+			<Member name="300-10">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="20" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="06-26-1996" />
+				<Alias table="Default">Dark Cream</Alias>
+				<Alias table="ChineseNames">Dark Cream</Alias>
+				<Alias table="JapaneseNames">ダーククリーム</Alias>
+				<Alias table="RussianNames">Темная крем-сода</Alias>
+				<Alias table="GermanNames">Schokolade</Alias>
+			</Member>
+			<Member name="300-20">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="20" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="06-26-1996" />
+				<Alias table="Default">Vanilla Cream</Alias>
+				<Alias table="ChineseNames">香草奶精</Alias>
+				<Alias table="JapaneseNames">バニラクリーム</Alias>
+				<Alias table="RussianNames">Ванильная крем-сода</Alias>
+				<Alias table="GermanNames">Vanille</Alias>
+			</Member>
+			<Member name="300-30">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Can" />
+				<AttributeMember dimension="Intro Date" name="06-26-1996" />
+				<Alias table="Default">Diet Cream</Alias>
+				<Alias table="ChineseNames">健怡奶精</Alias>
+				<Alias table="JapaneseNames">ダイエットクリーム</Alias>
+				<Alias table="RussianNames">Диетическая крем-сода</Alias>
+				<Alias table="GermanNames">Light</Alias>
+			</Member>
+		</Member>
+		<Member name="400" HierarchyType="Disabled">
+			<Alias table="Default">Fruit Soda</Alias>
+			<Alias table="ChineseNames">水果汽水</Alias>
+			<Alias table="JapaneseNames">フルーツソーダ</Alias>
+			<Alias table="RussianNames">Фруктовые газированные напитки</Alias>
+			<Alias table="GermanNames">Fruchtsaftgetränke</Alias>
+			<Member name="400-10">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="32" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="10-01-1996" />
+				<Alias table="Default">Grape</Alias>
+				<Alias table="ChineseNames">葡萄</Alias>
+				<Alias table="JapaneseNames">ぶどう</Alias>
+				<Alias table="RussianNames">Виноградный напиток</Alias>
+				<Alias table="GermanNames">Grapefruit</Alias>
+			</Member>
+			<Member name="400-20">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="32" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="10-01-1996" />
+				<Alias table="Default">Orange</Alias>
+				<Alias table="ChineseNames">橘子</Alias>
+				<Alias table="JapaneseNames">オレンジ</Alias>
+				<Alias table="RussianNames">Апельсиновый напиток</Alias>
+				<Alias table="GermanNames">Orange</Alias>
+			</Member>
+			<Member name="400-30">
+				<AttributeMember dimension="Caffeinated" name="False" />
+				<AttributeMember dimension="Ounces" name="32" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="10-01-1996" />
+				<Alias table="Default">Strawberry</Alias>
+				<Alias table="ChineseNames">草莓</Alias>
+				<Alias table="JapaneseNames">いちご</Alias>
+				<Alias table="RussianNames">Клубничный напиток</Alias>
+				<Alias table="GermanNames">Erdbeere</Alias>
+			</Member>
+		</Member>
+		<Member name="Diet" Consolidation="~" HierarchyType="Disabled">
+			<Alias table="Default">Diet Drinks</Alias>
+			<Alias table="ChineseNames">減肥飲料</Alias>
+			<Alias table="JapaneseNames">ダイエット飲料</Alias>
+			<Alias table="RussianNames">Диетические напитки</Alias>
+			<Alias table="GermanNames">Diätgetränke</Alias>
+			<Member name="100-20" SharedMember="Y" DataStorage="ShareData">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Can" />
+				<AttributeMember dimension="Intro Date" name="04-01-1996" />
+				<Alias table="Default">Diet Cola</Alias>
+			</Member>
+			<Member name="200-20" SharedMember="Y" DataStorage="ShareData">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="16" />
+				<AttributeMember dimension="Pkg Type" name="Bottle" />
+				<AttributeMember dimension="Intro Date" name="07-26-1996" />
+				<Alias table="Default">Diet Root Beer</Alias>
+			</Member>
+			<Member name="300-30" SharedMember="Y" DataStorage="ShareData">
+				<AttributeMember dimension="Caffeinated" name="True" />
+				<AttributeMember dimension="Ounces" name="12" />
+				<AttributeMember dimension="Pkg Type" name="Can" />
+				<AttributeMember dimension="Intro Date" name="06-26-1996" />
+				<Alias table="Default">Diet Cream</Alias>
+			</Member>
+		</Member>
+	</Dimension>
+	<Dimension name="Market" HierarchyType="Stored" csversion="4.0">
+		<AttributeDimension nameRef="Population" name="Population" AttributeType="Numeric"></AttributeDimension>
+		<Alias table="ChineseNames">市場</Alias>
+		<Alias table="JapaneseNames">市場</Alias>
+		<Alias table="RussianNames">Рынок сбыта</Alias>
+		<Alias table="GermanNames">Markt</Alias>
+		<Generations>
+			<GenLevel number="2" name="Region" />
+			<GenLevel number="3" name="State" />
+		</Generations>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    1">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="3" memberIdentifier="N" Consolidation="N" DataStorage="N" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    2">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">Y</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="East" HierarchyType="Disabled">
+			<Alias table="ChineseNames">東部</Alias>
+			<Alias table="JapaneseNames">東部</Alias>
+			<Alias table="RussianNames">Восток</Alias>
+			<Alias table="GermanNames">Ost</Alias>
+			<UDA>Major Market</UDA>
+			<Member name="New York">
+				<AttributeMember dimension="Population" name="21000000" />
+				<Alias table="ChineseNames">紐約州</Alias>
+				<Alias table="JapaneseNames">ニューヨーク州</Alias>
+				<Alias table="RussianNames">Нью-Йорк</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Massachusetts">
+				<AttributeMember dimension="Population" name="9000000" />
+				<Alias table="ChineseNames">麻省</Alias>
+				<Alias table="JapaneseNames">マサチューセッツ州</Alias>
+				<Alias table="RussianNames">Массачусетс</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Florida">
+				<AttributeMember dimension="Population" name="15000000" />
+				<Alias table="ChineseNames">佛州</Alias>
+				<Alias table="JapaneseNames">フロリダ州</Alias>
+				<Alias table="RussianNames">Флорида</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Connecticut">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">康州</Alias>
+				<Alias table="JapaneseNames">コネチカット州</Alias>
+				<Alias table="RussianNames">Коннектикут</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="New Hampshire">
+				<AttributeMember dimension="Population" name="3000000" />
+				<Alias table="ChineseNames">新罕布夏州</Alias>
+				<Alias table="JapaneseNames">ニューハンプシャー州</Alias>
+				<Alias table="RussianNames">Нью-Гемпшир</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+		</Member>
+		<Member name="West" HierarchyType="Disabled">
+			<Alias table="ChineseNames">西部</Alias>
+			<Alias table="JapaneseNames">西部</Alias>
+			<Alias table="RussianNames">Запад</Alias>
+			<Member name="California">
+				<AttributeMember dimension="Population" name="33000000" />
+				<Alias table="ChineseNames">加州</Alias>
+				<Alias table="JapaneseNames">カリフォルニア州</Alias>
+				<Alias table="RussianNames">Калифорния</Alias>
+				<Alias table="GermanNames">Kalifornien</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Oregon">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">奧勒岡州</Alias>
+				<Alias table="JapaneseNames">オレゴン州</Alias>
+				<Alias table="RussianNames">Орегон</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Washington">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">華盛頓州</Alias>
+				<Alias table="JapaneseNames">ワシントン州</Alias>
+				<Alias table="RussianNames">Вашингтон</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Utah">
+				<AttributeMember dimension="Population" name="3000000" />
+				<Alias table="ChineseNames">猶他州</Alias>
+				<Alias table="JapaneseNames">ユタ州</Alias>
+				<Alias table="RussianNames">Юта</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Nevada">
+				<AttributeMember dimension="Population" name="3000000" />
+				<Alias table="ChineseNames">內華達州</Alias>
+				<Alias table="JapaneseNames">ネバダ州</Alias>
+				<Alias table="RussianNames">Невада</Alias>
+				<UDA>Small Market</UDA>
+				<UDA>New Market</UDA>
+			</Member>
+		</Member>
+		<Member name="South" HierarchyType="Disabled">
+			<Alias table="ChineseNames">南部</Alias>
+			<Alias table="JapaneseNames">南部</Alias>
+			<Alias table="RussianNames">Юг</Alias>
+			<Alias table="GermanNames">Süd</Alias>
+			<UDA>Small Market</UDA>
+			<Member name="Texas">
+				<AttributeMember dimension="Population" name="21000000" />
+				<Alias table="ChineseNames">德州</Alias>
+				<Alias table="JapaneseNames">テキサス州</Alias>
+				<Alias table="RussianNames">Техас</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Oklahoma">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">奧克拉荷馬州</Alias>
+				<Alias table="JapaneseNames">オクラホマ州</Alias>
+				<Alias table="RussianNames">Оклахома</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Louisiana">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">路易斯安那州</Alias>
+				<Alias table="JapaneseNames">ルイジアナ州</Alias>
+				<Alias table="RussianNames">Луизиана</Alias>
+				<UDA>Small Market</UDA>
+				<UDA>New Market</UDA>
+			</Member>
+			<Member name="New Mexico">
+				<AttributeMember dimension="Population" name="3000000" />
+				<Alias table="ChineseNames">新墨西哥州</Alias>
+				<Alias table="JapaneseNames">ニューメキシコ州</Alias>
+				<Alias table="RussianNames">Нью-Мексико</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+		</Member>
+		<Member name="Central" HierarchyType="Disabled">
+			<Alias table="ChineseNames">中部</Alias>
+			<Alias table="JapaneseNames">中部</Alias>
+			<Alias table="RussianNames">Центр</Alias>
+			<Alias table="GermanNames">Mitte</Alias>
+			<UDA>Major Market</UDA>
+			<Member name="Illinois">
+				<AttributeMember dimension="Population" name="12000000" />
+				<Alias table="ChineseNames">伊利諾州</Alias>
+				<Alias table="JapaneseNames">イリノイ州</Alias>
+				<Alias table="RussianNames">Иллинойс</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Ohio">
+				<AttributeMember dimension="Population" name="12000000" />
+				<Alias table="ChineseNames">俄亥俄州</Alias>
+				<Alias table="JapaneseNames">オハイオ州</Alias>
+				<Alias table="RussianNames">Огайо</Alias>
+				<UDA>Major Market</UDA>
+			</Member>
+			<Member name="Wisconsin">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">威斯康州</Alias>
+				<Alias table="JapaneseNames">ウイスコンシン州</Alias>
+				<Alias table="RussianNames">Висконсин</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Missouri">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">密蘇里州</Alias>
+				<Alias table="JapaneseNames">ミズーリ州</Alias>
+				<Alias table="RussianNames">Миссури</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Iowa">
+				<AttributeMember dimension="Population" name="3000000" />
+				<Alias table="ChineseNames">愛荷華州</Alias>
+				<Alias table="JapaneseNames">アイオワ州</Alias>
+				<Alias table="RussianNames">Айова</Alias>
+				<UDA>Small Market</UDA>
+			</Member>
+			<Member name="Colorado">
+				<AttributeMember dimension="Population" name="6000000" />
+				<Alias table="ChineseNames">科羅拉多州</Alias>
+				<Alias table="JapaneseNames">コロラド州</Alias>
+				<Alias table="RussianNames">Колорадо</Alias>
+				<UDA>Major Market</UDA>
+				<UDA>New Market</UDA>
+			</Member>
+		</Member>
+	</Dimension>
+	<Dimension name="Scenario" DataStorage="LabelOnly" HierarchyType="Stored" density="Dense" csversion="4.0">
+		<Alias table="ChineseNames">情形,概要</Alias>
+		<Alias table="JapaneseNames">シナリオ</Alias>
+		<Alias table="RussianNames">Исполнение бюджета</Alias>
+		<Alias table="GermanNames">Szenario</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="Y" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="Y" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="Actual" HierarchyType="Disabled">
+			<Alias table="ChineseNames">實際</Alias>
+			<Alias table="JapaneseNames">実際</Alias>
+			<Alias table="RussianNames">Фактически</Alias>
+			<Alias table="GermanNames">Tatsächlich</Alias>
+		</Member>
+		<Member name="Budget" Consolidation="~" HierarchyType="Disabled">
+			<Alias table="ChineseNames">預算</Alias>
+			<Alias table="JapaneseNames">予算</Alias>
+			<Alias table="RussianNames">План</Alias>
+			<Alias table="GermanNames">Geplant</Alias>
+		</Member>
+		<Member name="Variance" Consolidation="~" TwoPassCalc="Y" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<MemberFormula> @VAR(Actual, Budget);
+			</MemberFormula>
+			<Alias table="ChineseNames">變動</Alias>
+			<Alias table="JapaneseNames">変動</Alias>
+			<Alias table="RussianNames">Разница</Alias>
+			<Alias table="GermanNames">Abweichung</Alias>
+		</Member>
+		<Member name="Variance %" Consolidation="~" TwoPassCalc="Y" DataStorage="DynamicCalc" HierarchyType="Disabled">
+			<MemberFormula> @VARPER(Actual, Budget);
+			</MemberFormula>
+			<Alias table="ChineseNames">變動率</Alias>
+			<Alias table="JapaneseNames">変動率</Alias>
+			<Alias table="RussianNames">Разница %</Alias>
+			<Alias table="GermanNames">Abweichung in %</Alias>
+		</Member>
+	</Dimension>
+	<Dimension name="Caffeinated" DataStorage="DynamicCalc" HierarchyType="Stored" StorageCategory="Attribute"
+		dimensionType="Attribute" csversion="4.0" AttributeType="Boolean">
+		<Alias table="ChineseNames">含咖啡因</Alias>
+		<Alias table="JapaneseNames">カフェイン</Alias>
+		<Alias table="RussianNames">Коффеин</Alias>
+		<Alias table="GermanNames">Koffeinhaltig</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">N</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">N</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">N</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">N</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="True" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="False" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+	</Dimension>
+	<Dimension name="Ounces" DataStorage="DynamicCalc" HierarchyType="Stored" StorageCategory="Attribute" dimensionType="Attribute"
+		csversion="4.0" AttributeType="Numeric">
+		<Alias table="ChineseNames">盎司</Alias>
+		<Alias table="JapaneseNames">オンス</Alias>
+		<Alias table="RussianNames">Унции</Alias>
+		<Alias table="GermanNames">Unzen</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">N</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">N</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">N</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">N</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="32" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="20" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="16" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="12" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+	</Dimension>
+	<Dimension name="Pkg Type" DataStorage="DynamicCalc" HierarchyType="Stored" StorageCategory="Attribute" dimensionType="Attribute"
+		csversion="4.0" AttributeType="Text">
+		<Alias table="ChineseNames">包裝方式</Alias>
+		<Alias table="JapaneseNames">パッケージタイプ</Alias>
+		<Alias table="RussianNames">Тип упаковки</Alias>
+		<Alias table="GermanNames">Art der Verpackung</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="Bottle" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+			<Alias table="ChineseNames">瓶子</Alias>
+			<Alias table="JapaneseNames">瓶</Alias>
+			<Alias table="RussianNames">Бутылка</Alias>
+			<Alias table="GermanNames">Flasche</Alias>
+		</Member>
+		<Member name="Can" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+			<Alias table="ChineseNames">罐子</Alias>
+			<Alias table="JapaneseNames">缶</Alias>
+			<Alias table="RussianNames">Банка</Alias>
+			<Alias table="GermanNames">Dose</Alias>
+		</Member>
+	</Dimension>
+	<Dimension name="Population" DataStorage="DynamicCalc" HierarchyType="Stored" StorageCategory="Attribute"
+		dimensionType="Attribute" csversion="4.0" AttributeType="Numeric">
+		<Alias table="ChineseNames">人口</Alias>
+		<Alias table="JapaneseNames">人口</Alias>
+		<Alias table="RussianNames">Население</Alias>
+		<Alias table="GermanNames">Einwohner</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="3" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">Y</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">N</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">N</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">N</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">N</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="Small" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+			<Alias table="ChineseNames">小</Alias>
+			<Alias table="JapaneseNames">少</Alias>
+			<Alias table="RussianNames">Маленький</Alias>
+			<Alias table="GermanNames">Klein</Alias>
+			<Member name="3000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">LT/= 3,000,000</Alias>
+			</Member>
+			<Member name="6000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">3,000,001--6,000,000</Alias>
+			</Member>
+		</Member>
+		<Member name="Medium" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+			<Alias table="ChineseNames">中</Alias>
+			<Alias table="JapaneseNames">中</Alias>
+			<Alias table="RussianNames">Средний</Alias>
+			<Alias table="GermanNames">Mittel</Alias>
+			<Member name="9000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">6,000,001--9,000,000</Alias>
+			</Member>
+			<Member name="12000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">9,000,001--12,000,000</Alias>
+			</Member>
+			<Member name="15000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">12,000,001--15,000,000</Alias>
+			</Member>
+			<Member name="18000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">15,000,001--18,000,000</Alias>
+			</Member>
+		</Member>
+		<Member name="Large" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+			<Alias table="ChineseNames">大</Alias>
+			<Alias table="JapaneseNames">多</Alias>
+			<Alias table="RussianNames">Большой</Alias>
+			<Alias table="GermanNames">Groß</Alias>
+			<Member name="21000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">18,000,001--21,000,000</Alias>
+			</Member>
+			<Member name="24000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">21,000,001--24,000,000</Alias>
+			</Member>
+			<Member name="27000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">24,000,001--27,000,000</Alias>
+			</Member>
+			<Member name="30000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">27,000,001--30,000,000</Alias>
+			</Member>
+			<Member name="33000000" Consolidation="~" DataStorage="DynamicCalc" StorageCategory="Attribute">
+				<Alias table="Default">30,000,001--33,000,000</Alias>
+			</Member>
+		</Member>
+	</Dimension>
+	<Dimension name="Intro Date" DataStorage="DynamicCalc" HierarchyType="Stored" StorageCategory="Attribute"
+		dimensionType="Attribute" csversion="4.0" AttributeType="Date">
+		<Alias table="ChineseNames">開辦日</Alias>
+		<Alias table="JapaneseNames">発売日</Alias>
+		<Alias table="RussianNames">Начальная дата</Alias>
+		<Alias table="GermanNames">Datum der Einführung</Alias>
+		<MemberPropertiesInfo>
+			<GenerationInfo number="1" memberIdentifier="N" Consolidation="N" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="Y" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">Y</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">Y</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">Y</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+			<GenerationInfo number="2" memberIdentifier="N" Consolidation="Y" DataStorage="Y" TwoPassCalc="N" MemberSolveOrder="N"
+				TimeBalance="N" VarianceReporting="N" comment="N" MemberFormula="N" HierarchyType="N" SkipValue="N" maxUDA="    0">
+				<AliasTablesInfo>
+					<AliasTableInfo name="Default">N</AliasTableInfo>
+					<AliasTableInfo name="Long Names">N</AliasTableInfo>
+					<AliasTableInfo name="ChineseNames">N</AliasTableInfo>
+					<AliasTableInfo name="JapaneseNames">N</AliasTableInfo>
+					<AliasTableInfo name="RussianNames">N</AliasTableInfo>
+					<AliasTableInfo name="GermanNames">N</AliasTableInfo>
+				</AliasTablesInfo>
+				<AttributesInfo>
+					<AttributeAssocInfo name="Caffeinated">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Ounces">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Pkg Type">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Population">N</AttributeAssocInfo>
+					<AttributeAssocInfo name="Intro Date">N</AttributeAssocInfo>
+				</AttributesInfo>
+			</GenerationInfo>
+		</MemberPropertiesInfo>
+		<Member name="03-25-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="04-01-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="09-27-1995" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="07-26-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="12-10-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="06-26-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+		<Member name="10-01-1996" Consolidation="~" DataStorage="DynamicCalc" HierarchyType="Disabled" StorageCategory="Attribute">
+		</Member>
+	</Dimension>
+	<smartLists>
+	</smartLists>
+</application>
