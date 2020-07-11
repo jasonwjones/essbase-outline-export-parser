@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.appliedolap.essbase.exportparse</groupId>
 	<artifactId>essbase-outline-export-parser</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Essbase Outline Export Parser</name>
 	<description>Because why not.</description>
 	<dependencies>
