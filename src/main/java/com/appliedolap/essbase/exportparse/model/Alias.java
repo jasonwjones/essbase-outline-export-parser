@@ -15,12 +15,12 @@ public class Alias {
 	private String alias;
 
 	public Alias() {}
-
+	
 	public Alias(String table, String alias) {
 		this.table = table;
 		this.alias = alias;
 	}
-
+	
 	public String getTable() {
 		return table;
 	}

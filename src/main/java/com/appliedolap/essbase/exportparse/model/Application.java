@@ -71,6 +71,9 @@ public class Application {
 	}
 
 	public Integer getDimCount() {
+		if (dimCount == null && dimensions != null) {
+			return dimensions.size();
+		}
 		return dimCount;
 	}
 

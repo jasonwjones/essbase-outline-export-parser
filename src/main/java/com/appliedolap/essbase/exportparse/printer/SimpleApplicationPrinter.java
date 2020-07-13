@@ -27,8 +27,10 @@ public class SimpleApplicationPrinter {
 	public void print(Application application) throws Exception {
 
 		System.out.println("Cube:");
-		System.out.println("    App settings: " + application.getCube().getApplicationSettings());
-		System.out.println("    Alias tables: " + application.getCube().getAliasTables());
+		if (application.getCube() != null) {
+			System.out.println("    App settings: " + application.getCube().getApplicationSettings());
+			System.out.println("    Alias tables: " + application.getCube().getAliasTables());
+		}
 
 		for (Dimension dimension : application.getDimensions()) {
 			System.out.println(dimension);

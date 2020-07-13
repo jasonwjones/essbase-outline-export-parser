@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.appliedolap.essbase.exportparse</groupId>
 	<artifactId>essbase-outline-export-parser</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.0</version>
 	<name>Essbase Outline Export Parser</name>
-	<description>Because why not.</description>
+	<description>Contains JAXB classes modeled on the Essbase Outline XML format</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
