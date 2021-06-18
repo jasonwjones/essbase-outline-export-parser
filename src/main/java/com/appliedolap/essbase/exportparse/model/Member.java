@@ -169,7 +169,7 @@ public class Member {
 	public String toString() {
 		return name 
 				+ " [" + (sharedMember != null ? "sharedMember=" + sharedMember  + ". ": "") 
-				+ (!dataStorage.equals(DEFAULT_DATA_STORAGE) ? "dataStorage=" + dataStorage + ", " : "") 
+				+ (!DEFAULT_DATA_STORAGE.equals(dataStorage) ? "dataStorage=" + dataStorage + ", " : "") 
 				+ "consolidation=" + consolidation 
 				+  (aliases != null ? ", aliases=" + aliases : "")
 				+  (udas != null ? ", udas=" + udas : "") 
