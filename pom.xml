@@ -4,14 +4,12 @@
 	<groupId>com.appliedolap.essbase.exportparse</groupId>
 	<artifactId>essbase-outline-export-parser</artifactId>
 	<version>1.0.2</version>
-	<name>Essbase Outline Export Parser</name>
-	<description>Contains JAXB classes modeled on the Essbase Outline XML format</description>
-
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
+	<name>Essbase Outline Export Parser</name>
+	<description>Contains JAXB classes modeled on the Essbase Outline XML format</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
