@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "application")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -23,6 +24,9 @@ public class Application {
 
 	@XmlAttribute(name = "dimCount")
 	private Integer dimCount;
+
+	@XmlElement(name = "validation")
+	private Validation validation = new Validation();
 
 	@XmlElement(name = "cube")
 	private Cube cube;
@@ -79,6 +83,31 @@ public class Application {
 
 	public void setDimCount(Integer dimCount) {
 		this.dimCount = dimCount;
+	}
+
+	public Validation getValidation() {
+		return validation;
+	}
+
+	public void setValidation(Validation validation) {
+		this.validation = validation;
+	}
+
+	@XmlAccessorType(XmlAccessType.FIELD)
+	public static class Validation {
+
+		@XmlAttribute(name = "sharedBeforePrototype")
+		@XmlJavaTypeAdapter(YesNoBooleanAdapter.class)
+		private Boolean sharedBeforePrototype;
+
+		public Boolean isSharedBeforePrototype() {
+			return sharedBeforePrototype;
+		}
+
+		public void setSharedBeforePrototype(Boolean sharedBeforePrototype) {
+			this.sharedBeforePrototype = sharedBeforePrototype;
+		}
+
 	}
 
 }
