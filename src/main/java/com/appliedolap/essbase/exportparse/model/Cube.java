@@ -1,6 +1,5 @@
 package com.appliedolap.essbase.exportparse.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -19,10 +18,10 @@ public class Cube {
 
 	@XmlElement(name = "aliasTables")
 	private AliasTables aliasTables;
-
+	
 	@XmlElement(name = "attributeSettings")
 	private AttributeSettings attributeSettings;
-
+	
 	@XmlAccessorType(XmlAccessType.FIELD)
 	public static class ApplicationSettings {
 
@@ -64,27 +63,11 @@ public class Cube {
 		@XmlElement(name = "DefaultTable")
 		private Table defaultTable;
 
-		public AliasTables() {}
-
-		public AliasTables(String defaultTableName, String... aliasTableNames) {
-			tables = new ArrayList<>();
-			for (String aliasTableName : aliasTableNames) {
-				tables.add(new Table(aliasTableName));
-			}
-			defaultTable = new Table(defaultTableName);
-		}
-
 		@XmlAccessorType(XmlAccessType.FIELD)
 		public static class Table {
 
 			@XmlAttribute(name = "name")
 			private String name;
-
-			public Table() {}
-
-			public Table(String name) {
-				this.name = name;
-			}
 
 			public String getName() {
 				return name;
@@ -121,15 +104,15 @@ public class Cube {
 		public String toString() {
 			return "AliasTables [tables=" + tables + ", defaultTable=" + defaultTable + "]";
 		}
-
+		
 	}
 
 	@XmlAccessorType(XmlAccessType.FIELD)
 	public static class AttributeSettings {
-
+		
 		@XmlElement
 		private String prefixSuffixValue;
-
+		
 		@XmlElement
 		private String prefixSuffixFormat;
 
@@ -148,9 +131,9 @@ public class Cube {
 		public void setPrefixSuffixFormat(String prefixSuffixFormat) {
 			this.prefixSuffixFormat = prefixSuffixFormat;
 		}
-
+		
 	}
-
+	
 	public ApplicationSettings getApplicationSettings() {
 		return applicationSettings;
 	}
@@ -166,5 +149,4 @@ public class Cube {
 	public void setAliasTables(AliasTables aliasTables) {
 		this.aliasTables = aliasTables;
 	}
-
 }
