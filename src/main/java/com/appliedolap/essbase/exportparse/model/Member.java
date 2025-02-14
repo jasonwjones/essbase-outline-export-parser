@@ -2,12 +2,11 @@ package com.appliedolap.essbase.exportparse.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = { "aliases", "udas", "members", "memberFormula"})
 public class Member {
 
 	/**
@@ -17,7 +16,7 @@ public class Member {
 	public static final String DEFAULT_CONSOLIDATION = "+";
 
 	public static final String DEFAULT_DATA_STORAGE = "Stored";
-	
+
 	@XmlAttribute
 	private String name;
 
@@ -28,7 +27,8 @@ public class Member {
 	private String hierarchyType;
 
 	@XmlAttribute(name = "SharedMember")
-	private String sharedMember;
+	@XmlJavaTypeAdapter(YesNoBooleanAdapter.class)
+	private Boolean sharedMember;
 
 	@XmlAttribute(name = "DataStorage")
 	private String dataStorage = DEFAULT_DATA_STORAGE;
@@ -38,16 +38,16 @@ public class Member {
 
 	@XmlAttribute(name = "VarianceReporting")
 	private String varianceReporting;
-	
+
 	@XmlAttribute(name = "TimeBalance")
 	private String timeBalance;
-	
+
 	@XmlAttribute(name = "TwoPassCalc")
 	private String twoPassCalc;
 
 	@XmlAttribute(name = "StorageCategory")
 	private String storageCategory;
-	
+
 	@XmlElement(name = "Alias")
 	private List<Alias> aliases;
 
@@ -81,16 +81,12 @@ public class Member {
 		this.udas = udas;
 	}
 
-	public String getSharedMember() {
+	public Boolean isSharedMember() {
 		return sharedMember;
 	}
 
-	public void setSharedMember(String sharedMember) {
+	public void setSharedMember(Boolean sharedMember) {
 		this.sharedMember = sharedMember;
-	}
-
-	public boolean isShared() {
-		return "Y".equalsIgnoreCase(this.sharedMember);
 	}
 
 	public String getDataStorage() {
@@ -116,7 +112,7 @@ public class Member {
 	public void setConsolidation(String consolidation) {
 		this.consolidation = consolidation;
 	}
-	
+
 	public String getHierarchyType() {
 		return hierarchyType;
 	}
@@ -167,13 +163,13 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return name 
-				+ " [" + (sharedMember != null ? "sharedMember=" + sharedMember  + ". ": "") 
-				+ (!DEFAULT_DATA_STORAGE.equals(dataStorage) ? "dataStorage=" + dataStorage + ", " : "") 
-				+ "consolidation=" + consolidation 
+		return name
+				+ " [ sharedMember=" + sharedMember + ", "
+				+ (!DEFAULT_DATA_STORAGE.equals(dataStorage) ? "dataStorage=" + dataStorage + ", " : "")
+				+ "consolidation=" + consolidation
 				+  (aliases != null ? ", aliases=" + aliases : "")
-				+  (udas != null ? ", udas=" + udas : "") 
+				+  (udas != null ? ", udas=" + udas : "")
 				+ "]";
 	}
-	
+
 }
