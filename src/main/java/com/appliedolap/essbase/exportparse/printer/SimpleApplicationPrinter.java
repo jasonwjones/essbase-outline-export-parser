@@ -5,9 +5,12 @@ import com.appliedolap.essbase.exportparse.model.AttributeDimension;
 import com.appliedolap.essbase.exportparse.model.Dimension;
 import com.appliedolap.essbase.exportparse.model.Member;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
+
 /**
  * Simple utility class used to give a basic print-out of the {@link Application} object.
- * 
+ *
  * @author jasonwjones
  *
  */
@@ -16,7 +19,7 @@ public class SimpleApplicationPrinter {
 	/**
 	 * Convenience method that creates a new printer object and prints the given application outline
 	 * file
-	 * 
+	 *
 	 * @param application the application outline file
 	 * @throws Exception if an exception occurs
 	 */
@@ -25,7 +28,6 @@ public class SimpleApplicationPrinter {
 	}
 
 	public void print(Application application) throws Exception {
-
 		System.out.println("Cube:");
 		if (application.getCube() != null) {
 			System.out.println("    App settings: " + application.getCube().getApplicationSettings());
@@ -33,21 +35,34 @@ public class SimpleApplicationPrinter {
 		}
 
 		for (Dimension dimension : application.getDimensions()) {
-			System.out.println(dimension);
+			printDimension(dimension);
+		}
+	}
 
-			if (dimension.getAttributeDimensions() != null) {
-				for (AttributeDimension attributeDimension : dimension.getAttributeDimensions()) {
-					System.out.println("    Attribute Dimension: " + attributeDimension);
-				}
+	public void printDimension(Application application, String dimensionName) {
+		for (Dimension dimension : application.getDimensions()) {
+			if (dimension.getName().equals(dimensionName)) {
+				printDimension(dimension);
+				return;
 			}
+		}
+		throw new IllegalArgumentException("No such dimension: " + dimensionName);
+	}
 
-			if (dimension.getMembers() != null) {
-				for (Member member : dimension.getMembers()) {
-					printMember(member, 1);
-				}
+	public void printDimension(Dimension dimension) {
+		System.out.println(dimension);
+
+		if (dimension.getAttributeDimensions() != null) {
+			for (AttributeDimension attributeDimension : dimension.getAttributeDimensions()) {
+				System.out.println("    Attribute Dimension: " + attributeDimension);
 			}
 		}
 
+		if (dimension.getMembers() != null) {
+			for (Member member : dimension.getMembers()) {
+				printMember(member, 1);
+			}
+		}
 	}
 
 	private static void printMember(Member member, int level) {
