@@ -3,9 +3,36 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.appliedolap.essbase.exportparse</groupId>
 	<artifactId>essbase-outline-export-parser</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<name>Essbase Outline Export Parser</name>
 	<description>Contains JAXB classes modeled on the Essbase Outline XML format</description>
+	<url>https://github.com/jasonwjones/essbase-outline-export-parser</url>
+	<inceptionYear>2015</inceptionYear>
+
+	<organization>
+		<name>Jason Jones</name>
+		<url>https://www.jasonwjones.com</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git@github.com:jasonwjones/essbase-outline-export-parser.git</connection>
+		<developerConnection>scm:git:git@github.com:jasonwjones/essbase-outline-export-parser.git</developerConnection>
+		<url>git@github.com:jasonwjones/essbase-outline-export-parser.git</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Jason Jones</name>
+		</developer>
+	</developers>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -41,4 +68,68 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.7.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<publishingServerId>central</publishingServerId>
+					<autoPublish>true</autoPublish>
+					<waitUntil>published</waitUntil>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
