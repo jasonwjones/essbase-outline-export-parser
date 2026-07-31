@@ -10,9 +10,16 @@ public class ApplicationWalker {
 
     public static void walk(Application application, Callback callback) {
         for (Dimension dimension : application.getDimensions()) {
-            if (callback.startDimension(dimension) == FileVisitResult.CONTINUE) {
+            FileVisitResult result = callback.startDimension(dimension);
+            if (result == FileVisitResult.TERMINATE) {
+                return;
+            }
+            if (result == FileVisitResult.CONTINUE) {
                 walk(dimension, 0, callback);
                 callback.endDimension(dimension);
+            }
+            if (result == FileVisitResult.SKIP_SIBLINGS) {
+                return;
             }
         }
     }

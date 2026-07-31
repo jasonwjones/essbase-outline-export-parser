@@ -16,7 +16,7 @@ public abstract class SingleDimensionCallback extends AbstractApplicationWalkerC
     public FileVisitResult startDimension(Dimension dimension) {
         return dimensionName.equals(dimension.getName()) ?
                 FileVisitResult.CONTINUE :
-                FileVisitResult.TERMINATE;
+                FileVisitResult.SKIP_SUBTREE;
     }
 
 }

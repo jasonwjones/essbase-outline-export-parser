@@ -2,11 +2,11 @@ package com.appliedolap.essbase.exportparse.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
 
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Dimension extends Member {
@@ -20,6 +20,10 @@ public class Dimension extends Member {
 	@XmlElementWrapper(name = "Levels")
 	@XmlElement(name = "GenLevel")
 	private List<GenLevel> genLevels;
+
+	@XmlElementWrapper(name = "Generations")
+	@XmlElement(name = "GenLevel")
+	private List<GenLevel> generationLevels;
 
 	@XmlAttribute(name = "StorageCategory")
 	private String storageCategory;
@@ -52,6 +56,22 @@ public class Dimension extends Member {
 
 	public void setGenLevels(List<GenLevel> genLevels) {
 		this.genLevels = genLevels;
+	}
+
+	public List<GenLevel> getGenerationLevels() {
+		return generationLevels;
+	}
+
+	public void setGenerationLevels(List<GenLevel> generationLevels) {
+		this.generationLevels = generationLevels;
+	}
+
+	public String getCsVersion() {
+		return csVersion;
+	}
+
+	public void setCsVersion(String csVersion) {
+		this.csVersion = csVersion;
 	}
 
 	public String getDimensionType() {

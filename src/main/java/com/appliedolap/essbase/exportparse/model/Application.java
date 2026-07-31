@@ -2,11 +2,12 @@ package com.appliedolap.essbase.exportparse.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name = "application")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -14,6 +15,9 @@ public class Application {
 
 	@XmlAttribute(name = "name")
 	private String name;
+
+	@XmlAttribute(name = "csversion")
+	private String csVersion;
 
 	@XmlAttribute(name = "product")
 	private String product;
@@ -23,6 +27,9 @@ public class Application {
 
 	@XmlAttribute(name = "dimCount")
 	private Integer dimCount;
+
+	@XmlElement(name = "Validation")
+	private Validation validation = new Validation();
 
 	@XmlElement(name = "cube")
 	private Cube cube;
@@ -54,6 +61,14 @@ public class Application {
 		this.name = name;
 	}
 
+	public String getCsVersion() {
+		return csVersion;
+	}
+
+	public void setCsVersion(String csVersion) {
+		this.csVersion = csVersion;
+	}
+
 	public String getProduct() {
 		return product;
 	}
@@ -79,6 +94,31 @@ public class Application {
 
 	public void setDimCount(Integer dimCount) {
 		this.dimCount = dimCount;
+	}
+
+	public Validation getValidation() {
+		return validation;
+	}
+
+	public void setValidation(Validation validation) {
+		this.validation = validation;
+	}
+
+	@XmlAccessorType(XmlAccessType.FIELD)
+	public static class Validation {
+
+		@XmlAttribute(name = "sharedBeforePrototype")
+		@XmlJavaTypeAdapter(YesNoBooleanAdapter.class)
+		private Boolean sharedBeforePrototype;
+
+		public Boolean isSharedBeforePrototype() {
+			return sharedBeforePrototype;
+		}
+
+		public void setSharedBeforePrototype(Boolean sharedBeforePrototype) {
+			this.sharedBeforePrototype = sharedBeforePrototype;
+		}
+
 	}
 
 }

@@ -3,6 +3,45 @@
 Parsing library that can parse the Essbase MaxL export outline format and create a Java
 POJO representation of the same data.
 
+## Requirements
+
+- Java 17 or newer
+- Maven 3.6.3 or newer (the Dodeca repository Maven Wrapper is recommended)
+
+Version 2.x uses Jakarta XML Binding 4. Applications upgrading from 1.x must replace any
+references to `javax.xml.bind` exceptions or annotations with the Jakarta equivalents. The
+reader and writer expose `OutlineXmlException`, so consumers do not otherwise need to depend
+on JAXB exception types.
+
+## Usage
+
+```java
+OutlineXmlReader reader = new OutlineXmlReader();
+Application application = reader.read(new File("Sample.Basic.xml"));
+
+OutlineXmlWriter.write(application, new File("Sample.Basic.copy.xml"));
+```
+
+The `InputStream` reader does not close caller-owned streams. The `File` reader closes the
+stream it opens. XML parsing disables DTD and external-entity processing.
+
+## Build
+
+From this directory in the Dodeca repository:
+
+```shell
+../../../mvnw clean verify
+```
+
+Publishing is deliberately separate from normal verification and requires the `release`
+profile plus configured Maven Central and GPG credentials.
+
+```shell
+../../../mvnw clean deploy -Prelease
+```
+
+## Example outline XML
+
 The parsing library is given a file such as this:
 
 ```
@@ -210,5 +249,4 @@ The parsing library is given a file such as this:
    <smartLists />
 </application>
 ```
-
 

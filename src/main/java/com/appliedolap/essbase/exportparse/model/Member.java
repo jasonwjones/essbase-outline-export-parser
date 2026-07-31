@@ -2,8 +2,8 @@ package com.appliedolap.essbase.exportparse.model;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "aliases", "udas", "members", "memberFormula"})

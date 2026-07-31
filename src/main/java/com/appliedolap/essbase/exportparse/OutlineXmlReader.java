@@ -1,48 +1,68 @@
 package com.appliedolap.essbase.exportparse;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 import com.appliedolap.essbase.exportparse.model.Application;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
+
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.util.Objects;
 
 /**
- * Reads an Essbase outline file and returns a JAXB POJO with the contents
- * 
- * @author jasonwjones
- *
+ * Reads Essbase outline XML into the library's outline model.
  */
 public class OutlineXmlReader {
 
-	/**
-	 * Read an outline XML file
-	 * 
-	 * @param file the outline file
-	 * @return a new application object
-	 * @throws JAXBException if there is an error parsing the file
-	 */
-	public Application read(File file) throws JAXBException {
-		try {
-			return read(new FileInputStream(file));
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException("Couldn't find file " + file, e);
-		}
-	}
+    /**
+     * Reads an outline XML file. Streams opened by this method are closed before it returns.
+     *
+     * @param file the outline file
+     * @return a new application object
+     * @throws OutlineXmlException if the file cannot be opened or parsed
+     */
+    public Application read(File file) throws OutlineXmlException {
+        Objects.requireNonNull(file, "file");
+        try (InputStream inputStream = Files.newInputStream(file.toPath())) {
+            return read(inputStream);
+        } catch (IOException e) {
+            throw new OutlineXmlException("Unable to read outline XML file " + file, e);
+        }
+    }
 
-	/**
-	 * Read an outline XML file (stream).
-	 * 
-	 * @param inputStream the input stream to read
-	 * @return a new application object
-	 * @throws JAXBException if there is an error parsing the file
-	 */
-	public Application read(InputStream inputStream) throws JAXBException {
-		JAXBContext context = JAXBContext.newInstance(Application.class);
-		return (Application) context.createUnmarshaller().unmarshal(inputStream);
-	}
+    /**
+     * Reads outline XML from a stream. This method does not close the supplied stream.
+     *
+     * @param inputStream the input stream to read
+     * @return a new application object
+     * @throws OutlineXmlException if the XML cannot be parsed
+     */
+    public Application read(InputStream inputStream) throws OutlineXmlException {
+        Objects.requireNonNull(inputStream, "inputStream");
+        XMLStreamReader streamReader = null;
+        try {
+            XMLInputFactory inputFactory = XMLInputFactory.newFactory();
+            inputFactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);
+            inputFactory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
+            streamReader = inputFactory.createXMLStreamReader(inputStream);
+
+            Unmarshaller unmarshaller = OutlineXmlBinding.context().createUnmarshaller();
+            return (Application) unmarshaller.unmarshal(streamReader);
+        } catch (JAXBException | XMLStreamException e) {
+            throw new OutlineXmlException("Unable to parse outline XML", e);
+        } finally {
+            if (streamReader != null) {
+                try {
+                    streamReader.close();
+                } catch (XMLStreamException ignored) {
+                    // Parsing has completed and the caller owns the underlying stream.
+                }
+            }
+        }
+    }
 
 }
