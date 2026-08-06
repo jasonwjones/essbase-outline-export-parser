@@ -1,6 +1,7 @@
 package com.appliedolap.essbase.exportparse;
 
 import com.appliedolap.essbase.exportparse.model.Application;
+import com.appliedolap.essbase.exportparse.model.AttributeDimension;
 import com.appliedolap.essbase.exportparse.model.Cube;
 import com.appliedolap.essbase.exportparse.model.Dimension;
 import com.appliedolap.essbase.exportparse.model.Member;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class OutlineXmlReaderTest {
@@ -46,6 +48,19 @@ public class OutlineXmlReaderTest {
 		Dimension product = application.getDimensions().get(2);
 		assertEquals(Arrays.asList("SKU", "Family"), genLevelNames(product));
 		assertEquals(4, product.getAttributeDimensions().size());
+		AttributeDimension caffeinatedAssociation = product.getAttributeDimensions().get(0);
+		assertEquals("Caffeinated", caffeinatedAssociation.getNameRef());
+		assertEquals("Caffeinated", caffeinatedAssociation.getName());
+		assertEquals("Boolean", caffeinatedAssociation.getType());
+
+		Dimension caffeinated = dimensionNamed(application, "Caffeinated");
+		assertEquals("Attribute", caffeinated.getDimensionType());
+		// Dimension currently shadows Member's StorageCategory field, so the
+		// dimension-level value in the Oracle XML is not exposed after reading.
+		assertNull(caffeinated.getStorageCategory());
+		assertEquals("Boolean", caffeinated.getAttributeType());
+		assertEquals("DynamicCalc", caffeinated.getDataStorage());
+		assertEquals("Attribute", caffeinated.getMembers().get(0).getStorageCategory());
 
 		Cube cube = application.getCube();
 		assertNotNull(cube);
@@ -126,6 +141,13 @@ public class OutlineXmlReaderTest {
 			names.add(member.getName());
 		}
 		return names;
+	}
+
+	private Dimension dimensionNamed(Application application, String name) {
+		return application.getDimensions().stream()
+				.filter(dimension -> name.equals(dimension.getName()))
+				.findFirst()
+				.orElseThrow();
 	}
 
 	private List<String> genLevelNames(Dimension dimension) {
