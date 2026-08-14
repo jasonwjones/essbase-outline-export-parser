@@ -1,5 +1,11 @@
 # Essbase Outline Export Parser
 
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE). Unless
+otherwise noted, that license covers the source code, documentation, and test
+fixtures in this repository, including `src/test/resources/dims-output.xml`.
+
 Quick and dirty utility that can process an export XML file from the Essbase 
 MaxL command, then dump the given dimension to the console in hierarchical form.
 
