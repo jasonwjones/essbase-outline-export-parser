@@ -27,18 +27,26 @@ stream it opens. XML parsing disables DTD and external-entity processing.
 
 ## Build
 
-From this directory in the Dodeca repository:
+From this directory:
 
 ```shell
-../../../mvnw clean verify
+mvn clean verify
 ```
 
 Publishing is deliberately separate from normal verification and requires the `release`
 profile plus configured Maven Central and GPG credentials.
 
 ```shell
-../../../mvnw clean deploy -Prelease
+mvn clean deploy -Prelease
 ```
+
+The `master` branch preserves the original 2015 Java 8 prototype. The current
+implementation and its complete development history are on `main`.
+
+## License
+
+Copyright 2015-2026 Jason Jones. Licensed under the Apache License, Version 2.0;
+see [LICENSE](LICENSE).
 
 ## Example outline XML
 
@@ -249,4 +257,3 @@ The parsing library is given a file such as this:
    <smartLists />
 </application>
 ```
-
