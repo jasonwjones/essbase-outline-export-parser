@@ -133,7 +133,12 @@
 						<configuration>
 							<publishingServerId>central</publishingServerId>
 							<autoPublish>true</autoPublish>
-							<waitUntil>published</waitUntil>
+							<!-- Waiting for full publication can take well over the default 30-minute poll timeout
+							     even after validation succeeds, which can make the build report failure on a
+							     deployment that actually goes on to publish fine. Validation is synchronous and
+							     fast; with autoPublish true, Central takes it from there in the background
+							     regardless of whether we're still watching. -->
+							<waitUntil>validated</waitUntil>
 						</configuration>
 					</plugin>
 				</plugins>
